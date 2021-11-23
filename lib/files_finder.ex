@@ -10,7 +10,8 @@ defmodule ExcellentMigrations.FilesFinder do
   end
 
   def relevant_file?(path, start_after) do
-    migration_prefix = Application.get_env(:excellent_migrations, :migration_path, "priv/migrations")
+    migration_prefix =
+      Application.get_env(:excellent_migrations, :migration_path, "priv/repo/migrations")
 
     !String.starts_with?(path, ["deps/", "_build/"]) &&
       !String.contains?(path, ["/deps/", "/_build/"]) &&
